@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/assets/bg-login.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.15); /* transparência */
+  backdrop-filter: blur(12px); /* efeito vidro */
+  -webkit-backdrop-filter: blur(12px); /* compatibilidade */
+
+  padding: 40px;
+  width: 380px;
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  text-align: center;
+}
+
+/* LOGO */
+.logo {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+/* TEXT */
+h1 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* GOOGLE BUTTON */
+.google-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.google-btn img {
+  width: 18px;
+}
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  color: #999;
+  font-size: 12px;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  margin-top: 20px;
+  padding: 12px;
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #4b5563;
+}
