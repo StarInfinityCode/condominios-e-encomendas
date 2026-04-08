@@ -5,9 +5,11 @@ form.addEventListener("submit", async (e) => {
 
   const data = {
     name: form.name.value,
-    username: form.username.value,
     email: form.email.value,
+    phone: form.phone.value,
     password: form.password.value,
+    apartment: form.apartment.value,
+    role: 'morador',
   };
 
   try {

@@ -1,7 +1,9 @@
 const path = require("path");
 const express = require("express");
-const getPool = require(path.join(__dirname, "backend/src/database/database.js"));
-
+const getPool = require(
+  path.join(__dirname, "backend/src/database/database.js"),
+);
+const bcrypt = require("bcrypt");
 const app = express();
 
 // servir arquivos estáticos (HTML, CSS, JS)
@@ -49,75 +51,73 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
 
-// Teste de cadastro (PostgreSQL)
-app.post("/api/users", async (req, res) => {
+app.post("/api/login", async (req, res) => {
   const pool = getPool();
 
+  // 👇 ADICIONA ISSO AQUI
+  if (!pool) {
+    return res.status(500).json({
+      error: "Banco de dados não conectado",
+    });
+  }
+
+  const { email, password } = req.body;
+
   try {
-    const { name, username, email, password } = req.body;
+    const result = await pool.query("SELECT * FROM users WHERE email = $1", [
+      email,
+    ]);
 
-    if (!name || !username || !email || !password) {
-      return res.status(400).json({ error: "Campos obrigatórios ausentes." });
+    const user = result.rows[0];
+
+    if (!user) {
+      return res.status(400).json({ error: "Usuário não encontrado" });
     }
 
-    if (!senhaValida(password)) {
-      return res.status(400).json({ error: "Senha fraca." });
-    }
-
-    // 1) Verificar duplicidade
-    const check = await pool.query(
-      "SELECT id FROM users WHERE username = $1 OR email = $2 LIMIT 1",
-      [username, email]
-    );
-
-    if (check.rows.length > 0) {
-      return res.status(409).json({
-        error: "Username ou email já cadastrado.",
+    if (!user.password) {
+      return res.status(500).json({
+        error: "Usuário sem senha cadastrada",
       });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const senhaValida = await bcrypt.compare(password, user.password);
 
-    // 2) Inserir usuário
-    const result = await pool.query(
-      `INSERT INTO users (name, username, email, password)
-       VALUES ($1, $2, $3, $4)
-       RETURNING id`,
-      [name, username, email, hashedPassword]
-    );
+    if (!senhaValida) {
+      return res.status(400).json({ error: "Senha incorreta" });
+    }
 
-    res.status(201).json({
-      message: "Usuário cadastrado com sucesso!",
-      userId: result.rows[0].id,
+    res.json({
+      message: "Login OK",
+      user: {
+        id: user.id,
+        name: user.name,
+        role: user.role,
+      },
     });
   } catch (err) {
-    console.error("Erro no /api/users:", err);
+    console.error("ERRO NO LOGIN:", err);
+
     res.status(500).json({
-      error: "Erro interno ao cadastrar usuário.",
+      error: "Erro no servidor",
+      detalhe: err.message,
     });
   }
 });
 
-// Teste de cadastro (PostgreSQL)
 app.post("/api/users", async (req, res) => {
-  console.log("CHEGUEI NA ROTA DE CADASTRO");
   const pool = getPool();
 
   try {
-    const { name, username, email, password } = req.body;
+    const { name, email, password } = req.body;
 
-    if (!name || !username || !email || !password) {
+    if (!name || !email || !password) {
       return res.status(400).json({ error: "Campos obrigatórios ausentes." });
     }
 
-    if (!senhaValida(password)) {
-      return res.status(400).json({ error: "Senha fraca." });
-    }
-
-    // 1) Verificar duplicidade
+    // verificar duplicidade
     const check = await pool.query(
       "SELECT id FROM users WHERE username = $1 OR email = $2 LIMIT 1",
-      [username, email]
+      [username, email],
     );
 
     if (check.rows.length > 0) {
@@ -126,14 +126,15 @@ app.post("/api/users", async (req, res) => {
       });
     }
 
+    // criptografar senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 2) Inserir usuário
+    // inserir no banco
     const result = await pool.query(
-      `INSERT INTO users (name, username, email, password, role)
-       VALUES ($1, $2, $3, $4, $5)
+      `INSERT INTO users (name, email, password, role)
+       VALUES ($1, $2, $3, $4)
        RETURNING id`,
-      [name, username, email, hashedPassword, "user"]
+      [name, email, hashedPassword, "morador"], // 👈 aqui está a correção
     );
 
     res.status(201).json({
