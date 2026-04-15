@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
 
       localStorage.setItem("user", JSON.stringify(result.user));
 
-      window.location.href = "dashboard.html";
+      window.location.href = "index.html";
     } else {
       alert(result.error || "Email ou senha inválidos");
     }

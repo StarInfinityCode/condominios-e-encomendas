@@ -1,0 +1,111 @@
+/* Centralizar tudo */
+.main.center {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: top;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+/* Topo */
+.top-bar {
+  display: flex;
+  align-items: top;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.top-bar h1 {
+  font-size: 26px;
+}
+
+.top-bar p {
+  color: #888;
+}
+
+.back-btn {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Card moderno */
+.card-modern {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Caixa */
+.search-box-modern {
+  display: flex;
+  align-items: center;
+  background: #f4f6fb;
+  border-radius: 12px;
+  padding: 10px;
+  transition: 0.2s;
+  border: 2px solid transparent;
+}
+
+.search-box-modern:focus-within {
+  border-color: #3b6ef5;
+  background: #fff;
+}
+
+/* Ícone */
+.icon-left {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #999;
+}
+
+/* Input */
+.search-box-modern input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* Botão */
+.search-box-modern button {
+  background: #3b6ef5;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-box-modern button:hover {
+  background: #2f5be0;
+}
+
+/* Feedback */
+.feedback {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.feedback.success {
+  background: #e6f9ed;
+  color: #1e8e3e;
+}
+
+.feedback.error {
+  background: #fdecea;
+  color: #d93025;
+}
+
+.hidden {
+  display: none;
+}

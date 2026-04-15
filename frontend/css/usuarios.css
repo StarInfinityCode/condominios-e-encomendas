@@ -1,0 +1,149 @@
+/* Página */
+.users-page {
+  padding: 30px;
+  background: #f6f8fc;
+  margin-top: 20px;
+}
+
+/* Header */
+.header-users {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-users h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.header-users p {
+  color: #8a8f98;
+}
+
+/* Botão premium */
+.btn-gradient {
+  background: linear-gradient(135deg, #3b6ef5, #6f8ef6);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  margin-left: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 5px 15px rgba(59,110,245,0.3);
+  transition: 0.2s;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-1px);
+}
+
+/* Busca */
+.search-box-modern {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.search-box-modern i {
+  color: #999;
+  margin-right: 10px;
+}
+
+.search-box-modern input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+}
+
+/* Grid */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+/* Card */
+.user-card-modern {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: 0.25s;
+  position: relative;
+}
+
+.user-card-modern:hover {
+  transform: translateY(-3px);
+}
+
+/* Topo do card */
+.user-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b6ef5, #6f8ef6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Texto */
+.user-text h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.user-text span {
+  color: #8a8f98;
+  font-size: 13px;
+}
+
+/* Badge */
+.badge {
+  margin-top: 6px;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.badge.admin {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* Ações */
+.user-actions {
+  cursor: pointer;
+  color: #999;
+}
+
+.user-actions:hover {
+  color: #3b6ef5;
+}

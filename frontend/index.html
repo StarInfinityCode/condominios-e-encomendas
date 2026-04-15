@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <strong>CondoEntregas</strong>
+        <span>Gestão de Encomendas</span>
+      </div>
+
+      <div class="user">
+        <strong id="userName">Carregando...</strong>
+        <span class="badge admin">Administrador</span>
+      </div>
+
+      <nav>
+                <ul>
+                    <li class="active">
+                        <a href="/index.html">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/nova-encomenda.html">
+                            <i class="fas fa-box"></i> Nova Encomenda
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/retirada.html">
+                            <i class="fas fa-check-circle"></i> Confirmar Retirada
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/relatorios.html">
+                            <i class="fas fa-file-alt"></i> Relatórios
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/usuarios.html">
+                            <i class="fas fa-users"></i> Usuários
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+      <button id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i>
+        Sair
+      </button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- HEADER -->
+      <div class="header">
+        <div>
+          <h1>Olá, <span id="userGreeting">...</span></h1>
+          <p>Painel de administração do condomínio</p>
+        </div>
+
+        <div class="actions">
+          <a href="nova-encomenda.html"><button class="primary">+ Nova Encomenda</button></a>
+          <a href="retirada.html"><button class="secondary">Retirada</button></a>
+        </div>
+      </div>
+
+      <!-- CARDS -->
+      <div class="cards">
+        <div class="card">
+          <p>AGUARDANDO</p>
+          <h2>2</h2>
+        </div>
+        <div class="card">
+          <p>RETIRADAS</p>
+          <h2>2</h2>
+        </div>
+        <div class="card">
+          <p>HOJE</p>
+          <h2>0</h2>
+        </div>
+        <div class="card">
+          <p>TOTAL</p>
+          <h2>4</h2>
+        </div>
+      </div>
+
+      <!-- LISTA -->
+      <h3>Encomendas Aguardando Retirada</h3>
+
+      <div class="list">
+        <div class="item">
+          <div>
+            <strong>Caixa grande - Mercado Livre</strong>
+            <p>Carlos Silva • Apt 101 - A</p>
+            <span>13/03/2026 às 07:30</span>
+          </div>
+          <span class="status waiting">Aguardando</span>
+        </div>
+
+        <div class="item">
+          <div>
+            <strong>Envelope - Correios</strong>
+            <p>Maria Oliveira • Apt 202 - B</p>
+            <span>13/03/2026 às 06:15</span>
+          </div>
+          <span class="status waiting">Aguardando</span>
+        </div>
+      </div>
+
+      <h3>Retiradas Recentes</h3>
+
+      <div class="list">
+        <div class="item">
+          <div>
+            <strong>Pacote pequeno - Amazon</strong>
+            <p>Pedro Santos • Apt 305 - A</p>
+            <span>12/03/2026 às 11:00</span>
+          </div>
+          <span class="status done">Retirada</span>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="/js/index.js"></script>
+</body>
+
+</html>

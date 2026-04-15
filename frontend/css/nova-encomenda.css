@@ -1,0 +1,71 @@
+.main {
+  padding: 30px;
+  background: #f5f6fa;
+  flex: 1;
+}
+
+.page-header h1 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.page-header p {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Form */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #3b6ef5;
+}
+
+/* Botão */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #3b6ef5;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #2f5be0;
+}
